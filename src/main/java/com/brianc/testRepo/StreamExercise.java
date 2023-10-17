@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.brianc.testRepo.MindTree.Employee;
+
 /**
  * Hello world!
  *
@@ -49,6 +51,30 @@ public class StreamExercise
 			
 			return "name: " + name + ", age: " + age + ", title: " + title;  
 		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public Integer getAge() {
+			return age;
+		}
+		public void setAge(Integer age) {
+			this.age = age;
+		}
+		public String getTitle() {
+			return title;
+		}
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		public Float getSalary() {
+			return salary;
+		}
+		public void setSalary(Float salary) {
+			this.salary = salary;
+		}
 	}
 
     public static void main( String[] args ) {
@@ -89,6 +115,11 @@ public class StreamExercise
 			new Employee( "fred", 18, "teacher", 100000f)};
 			
     	List<Employee> emps = new ArrayList<>( Arrays.asList( empArray));
+    	
+    	emps.stream()
+		.sorted( (emp1, emp2)  -> emp1.getName().compareTo( emp2.getName() ))
+		.forEach( System.out::println);
+
     	Float sumOfEmps = emps
     			.stream()
     			.map( (employee) -> employee.salary)
@@ -103,7 +134,13 @@ public class StreamExercise
     			.reduce( 0f, (acc, x) -> acc + x );
     	System.out.println( "emps" + diffSalaryForDevs);
 
-    	Long countDevs = emps
+    	// Sortby Name
+       	emps.stream()
+	    .sorted( (emp1, emp2)  -> emp1.getName().compareTo( emp2.getName() ))
+	    .forEach( System.out::println);
+
+       	// Count developers
+       	Long countDevs = emps
     			.stream()
     			.filter( (employee) -> employee.title == "developer" )
     			.collect( Collectors.counting());
@@ -112,6 +149,8 @@ public class StreamExercise
     	Float average = diffSalaryForDevs / countDevs;
     	System.out.println( "emps average" + average);
 
+    	// Group by job title
+    	// determine average salary
     	Map<String, Object> averageSalaryMap = emps
     			.stream()
     			.collect( Collectors.groupingBy(

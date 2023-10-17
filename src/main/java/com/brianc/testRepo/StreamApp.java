@@ -2,28 +2,55 @@ package com.brianc.testRepo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
  * Hello world!
  *
  */
-public class StreamApp 
-{
+public class StreamApp {
+	
+    public static class Customer {
+    	
+    	private String name;
+		boolean hasbeenServed;
+
+		public Customer(String name) {
+			
+    		this.name = name;
+    		hasbeenServed = false;
+    	}
+		
+		void serve() {
+			
+			hasbeenServed = true;
+			System.out.println( "Customer served: " + name ); 
+			
+			
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "Customer [name=" + name + ", hasbeenServed=" + hasbeenServed + "]";
+		}
+		
+		
+    }
+
     public static void main( String[] args ) {
     	
         System.out.println( "Hello World!" );
         
-        //old stlye
-        Integer[] intArray = {1 ,2 ,3, 4, 5, 6, 7, 8, 9, 10 };
-        
-        List< Integer> listOfInts = new ArrayList<>( Arrays.asList( intArray ));
+        List< Integer> listOfInts = Arrays.asList( new Integer[] {1 ,2 ,3, 4, 5, 6, 7, 8, 9, 10 });
         
 		Function<Integer, Integer> timesTwo = ( x) -> x * 2;
 		//Function<Integer, Boolean> even = ( x) -> x * 2;
@@ -71,8 +98,7 @@ public class StreamApp
 		Predicate<String> isLongerThan5 = (str) -> str.length() > 5;
 		Predicate<String> isLongerThan3 = createLengthTest.apply( 3);
 
-		String[] wordsArr = { "hello", "functional", "apple", "programming", "is", "cool" };
-		List<String> words = new ArrayList<>( Arrays.asList( wordsArr));
+		List<String> words = Arrays.asList( new String[] { "hello", "functional", "apple", "programming", "is", "cool" });
 		
 		List< String> longWords = words
 				.stream()
@@ -119,5 +145,99 @@ public class StreamApp
 				.collect( Collectors.toList());
 		
 		System.out.println( parallelProcessWords);
+		
+		List<String> countries = Arrays.asList( new String[] { "croatia", "canada", "united states", "cazumel"} );
+		
+		List<String> countriesSorted = countries
+				.stream()
+				.map( c -> c.toUpperCase() )
+				.filter( c -> c.startsWith( "C" ))
+				.sorted()
+				.collect( Collectors.toList());
+				
+		System.out.println( countriesSorted);
+
+		countries.stream()
+				.map( c -> c.toUpperCase() )
+				.filter( c -> c.startsWith( "C" ))
+				.sorted()
+				.forEach( c -> System.out.println( c) );
+		
+		
+		printShopingList( "bread", "milk", "butter" );
+		
+		
+		Building building = new Building();
+		Office office = new Office();
+		build( building );
+		build( office );
+		
+		List<Building> buildings = new ArrayList<> ();
+		buildings.add( new Office());
+		buildings.add( new Building());
+		printBuildings(buildings);
+		
+		List<Office> offices = new ArrayList<> ();
+		offices.add( new Office());
+		offices.add( new Office());
+		printBuildings(offices);
+
+		List<House> houses = new ArrayList<> ();
+		houses.add( new House());
+		houses.add( new House());
+		addHouseToList( houses);
+		printBuildings( houses);
+		addHouseToList( buildings);
+
+		LinkedList<String> myList = new LinkedList();
+		myList.add("a");
+		myList.add("b");
+		
+		myList.add( 1, "c");
+		System.out.println( myList );
+		
+		LinkedList<Customer> customerList = new LinkedList();
+		
+		customerList.add( new Customer( "bob" ) );
+			
+		customerList.add( new Customer("fred") );
+		customerList.add( new Customer("sally") );
+		System.out.println( "Customers: " + customerList ); 
+
+		serveCustomer( customerList );
+		System.out.println( "Customers: " + customerList ); 
+
+    
     }
+    
+	static void serveCustomer( LinkedList<Customer> queue) {
+		
+		Customer c = queue.poll();
+		c.serve();
+		
+		
+	}
+	
+    static void build( Building building) {
+    	
+    	System.out.println( "building: " + building.toString());
+    	
+    }
+	private static void printBuildings( List< ? extends Building> buildings ) { }
+
+	private static void addHouseToList( List< ? super House> buildings ) {
+		
+		
+	}
+
+
+	private static void printShopingList(String... stringArgs ) {
+		
+		// Print the shopping list *any* number of args
+		
+		for( String arg: stringArgs) {
+			System.out.println( "Arg = " + arg );
+		}
+		
+	}
 }
