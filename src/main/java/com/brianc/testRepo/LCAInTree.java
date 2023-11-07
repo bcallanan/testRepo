@@ -2,24 +2,24 @@ package com.brianc.testRepo;
 
 public class LCAInTree {
 
-		static class Node {
+		static class BinaryTeeNode {
 		    int data;
-		    Node left, right;
+		    BinaryTeeNode left, right;
 
-		    Node(int item) {
+		    BinaryTeeNode(int item) {
 		        data = item;
 		        left = right = null;
 		    }
 		}
 
 
-		Node root;
+		BinaryTeeNode root;
 
-	    public Node findLCA(int n1, int n2) {
+	    public BinaryTeeNode findLCA(int n1, int n2) {
 	        return findLCA(root, n1, n2);
 	    }
 
-	    public Node findLCA(Node node, int n1, int n2) {
+	    public BinaryTeeNode findLCA(BinaryTeeNode node, int n1, int n2) {
 	        // Base case
 	        if (node == null) {
 	            return null;
@@ -38,8 +38,8 @@ public class LCAInTree {
 	        return node;
 	    }
 
-	    public Node createNewNode(int val) {
-	        Node newNode = new LCAInTree.Node(val);
+	    public BinaryTeeNode createNewNode(int val) {
+	    	BinaryTeeNode newNode = new LCAInTree.BinaryTeeNode(val);
 	        newNode.left = null;
 	        newNode.right = null;
 	        return newNode;
@@ -47,7 +47,7 @@ public class LCAInTree {
 	   
 	    public static void main(String args[]) {
 	    	LCAInTree tree = new LCAInTree();
-	        Node root = new LCAInTree.Node(20);
+	    	BinaryTeeNode root = new LCAInTree.BinaryTeeNode(20);
 	        tree.root = root;
 	        tree.root.left = tree.createNewNode( 8 );
 	        tree.root.right = tree.createNewNode( 22 );
@@ -56,7 +56,7 @@ public class LCAInTree {
 
 	        int n1 = 8;
 	        int n2 = 12;
-	        Node t = tree.findLCA(n1, n2);
+	        BinaryTeeNode t = tree.findLCA(n1, n2);
 	        System.out.println("LCA of " + n1 + " and " + n2 + " is " + t.data);
-	    }
+	    } 
 }

@@ -20,11 +20,12 @@ public class GreetingApp
 
     	greeting2.sayHello();
     	
-    	Calculator calc = (int x, int y) -> {
+    	CalculatorIntf calc = (int x, int y) -> {
     		
     		Random rand = new Random();
     		int val = rand.nextInt( 50 );
-    		
+        	System.out.println( "val= " + val );
+
     		return x * y + val;
     	};
     	
@@ -40,6 +41,4 @@ public class GreetingApp
     	};
     	System.out.println( calculator.applyAsInt(1, 2));  	
     }
-    
-    
 }

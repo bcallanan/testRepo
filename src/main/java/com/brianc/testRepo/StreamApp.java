@@ -51,6 +51,8 @@ public class StreamApp {
         System.out.println( "Hello World!" );
         
         List< Integer> listOfInts = Arrays.asList( new Integer[] {1 ,2 ,3, 4, 5, 6, 7, 8, 9, 10 });
+        List< Integer> listOfInts1 = Arrays.asList( new Integer[] {1 , 4, 5, 6, 9, 10 });
+        List< Integer> listOfInts2 = Arrays.asList( new Integer[] { 3, 4, 5, 9 });
         
 		Function<Integer, Integer> timesTwo = ( x) -> x * 2;
 		//Function<Integer, Boolean> even = ( x) -> x * 2;
@@ -135,7 +137,7 @@ public class StreamApp {
 		List<String> parallelProcessWords = words
 				.parallelStream()
 				.map((word) -> {
-					System.out.println( "Processing uppercase" + word);
+					System.out.println( "Processing uppercase " + word);
 					return word.toUpperCase();
 				})
 				.map((word) -> {
@@ -207,6 +209,13 @@ public class StreamApp {
 		serveCustomer( customerList );
 		System.out.println( "Customers: " + customerList ); 
 
+		
+		List< Integer> crossList = listOfInts.stream()
+				.filter(listOfInts1::contains )
+				.filter(listOfInts2::contains )
+			.collect( Collectors.toList() );
+		
+		System.out.println( crossList);
     
     }
     

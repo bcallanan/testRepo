@@ -37,6 +37,5 @@ public class PowerOfTwo {
 			}
 		}
 	}//end of Inner
-	
 }//end of Solution
 

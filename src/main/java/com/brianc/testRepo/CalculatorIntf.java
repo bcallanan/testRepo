@@ -7,7 +7,9 @@ package com.brianc.testRepo;
  * @author home
  *
  */
-public interface Calculator {
+public interface CalculatorIntf {
 
+	int foobar = (Integer) null;
+	
 	int calculate( int x, int y);
 }

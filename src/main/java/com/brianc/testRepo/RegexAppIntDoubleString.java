@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Hello world!
  *
  */
-public class RegexApp 
+public class RegexAppIntDoubleString
 {
     public static void main( String[] args ) {
     

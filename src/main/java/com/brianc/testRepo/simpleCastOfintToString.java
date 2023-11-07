@@ -18,12 +18,12 @@ public class simpleCastOfintToString {
     		   int n = in .nextInt();
     		   in.close();
     		  
-    		  
+    		  String s = null;
     		  in = new Scanner(System.in);
     		  while ( in.hasNext() ) {
     			  try {
-    				  String n = in.next();
-    				  int fooInt = Integer.parseInt(n);
+    				  s = in.next();
+    				  int fooInt = Integer.parseInt(s);
     				  if ( fooInt >= -100  && fooInt <= 100 ) {
     					  System.out.println("Good job");
     				  }
