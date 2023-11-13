@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
  * Hello world!
  *
  */
-public class Pailidrome {
+public class Palindrome {
 	public static void main(String...args) {
 	
 		String bobString = "gwertrewg";
