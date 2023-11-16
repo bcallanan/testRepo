@@ -14,7 +14,7 @@ import java.util.function.Predicate;
  */
 public class addem {
 
-    protected static class MyMath {
+    protected static class MyMathAddem {
         public static Function< Integer, Integer> createMulitplier( Integer y) {
             return ( Integer x ) -> x * y;
         }
@@ -25,7 +25,7 @@ public class addem {
 
         int n = Integer.parseInt(bufferedReader.readLine().trim());
 
-        Function< Integer, Integer > timesTwo = MyMath.createMulitplier( n );
+        Function< Integer, Integer > timesTwo = MyMathAddem.createMulitplier( n );
         
         for( int i=1; i <= 10; i ++ ) {
         	
