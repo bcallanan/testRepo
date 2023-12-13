@@ -3,10 +3,10 @@ package com.brianc.testRepo;
 import java.util.Arrays;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class GrabBagTests extends TestCase {

@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * Hello world!
  *
  */
-public class FidelityApp {
+public class MaxOccurenceElement {
 	
 	/*
 	 * Problem Stateament
@@ -35,13 +35,8 @@ public class FidelityApp {
 	
 	public static <T> void  findMatches(List<T> intArray) {
 
-	     intArray.stream()//( 47,78,78,78,78,78 , 1, 6, 3, 6, 90, 52, 78, 47, 47, 47)
-	       .collect( Collectors.groupingBy( Function.identity(), Collectors.counting() ) )
-	       .entrySet()
-	       .stream()
-	       .max( Map.Entry.comparingByValue())
-	       .ifPresent( System.out::println );
 
+	     System.out.print( "oldschool = " );
 	     Map<T, Integer> map = new HashMap<>();
 
 	     for (T t : intArray) {
@@ -55,14 +50,24 @@ public class FidelityApp {
 	         if (max == null || e.getValue() > max.getValue())
 	             max = e;
 	     }
-	     System.out.println( "oldschool = " + max );
+	     System.out.println( max );
 
-	    List<T> result =
+	     System.out.println( "Wont Find dups " );
+	     intArray.stream()//( 47,78,78,78,78,78 , 1, 6, 3, 6, 90, 52, 78, 47, 47, 47)
+	       .collect( Collectors.groupingBy( Function.identity(), Collectors.counting() ) )
+	       .entrySet()
+	       .stream()
+	       .max( Map.Entry.comparingByValue())
+	       .ifPresent( System.out::println );
+
+	     System.out.println( "Will Find dups " );
+	     List<T> result =
 	    		 intArray.stream()
 	    		 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
 	    		 .entrySet()
 	    		 .stream()
-	    		 .collect(Collectors.groupingBy(Map.Entry::getValue, Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
+	    		 .collect(Collectors.groupingBy(Map.Entry::getValue,
+	    				 Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
 	    		 .entrySet()
 	    		 .stream().max((o1, o2) -> o1.getKey().compareTo(o2.getKey())).map(Map.Entry::getValue)
 	    		 .orElse(Collections.emptyList());

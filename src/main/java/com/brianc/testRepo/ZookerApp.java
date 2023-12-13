@@ -42,10 +42,10 @@ public class ZookerApp {
 	private void zooTalk() throws KeeperException, InterruptedException {
 		
 		// Write data to the znode "/myZnode"
-		String path = "/testtopic";
+		String path = "/secondTopic";
 		String data = "hello world";
 		Stat zooStats = zookeeper.exists(path, false);
-		if ( zooStats != null ) {
+		//if ( zooStats != null ) {
 		
 			zookeeper.create(path, data.getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
 		 
@@ -59,7 +59,7 @@ public class ZookerApp {
 			// Closing the connection 
 			// to the ZooKeeper ensemble
 			zookeeper.close();
-		}
+	//	}
 	}
 
 	public static void main(String[] args) {

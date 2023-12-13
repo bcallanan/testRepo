@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.brianc.testRepo.StreamExercise.Employee;
+import com.brianc.testRepo.SortAddSalariesAverageExercise.Employee;
 
 /**
  * Hello world!
  *
  */
-public class MindTree {
+public class Java8LambdaSortUserObject {
 
 	protected static class Employee {
 		private String name;

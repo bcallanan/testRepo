@@ -16,14 +16,13 @@ public class FizzBuzzJava8 {
     
     public static String mapIntToFizzBuzz( int i ) {
 
+    	// test both first. 
     	if(i % 3 == 0 && i % 5 == 0) {
             return "FizzBuzz";
-        }
-        
+        }     
         if(i % 3 == 0) {
             return "Fizz";
         }
-        
         if(i % 5 == 0) {
             return "Buzz";
         }

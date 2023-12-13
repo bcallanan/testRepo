@@ -17,6 +17,8 @@ public class FizzBuzz {
         // Loop from 1 to n (inclusive)
         for (int i = 1; i <= n; ++i) {
            
+        	// check the Fizzbuzz first.
+        	
             // Check if i is divisible by both 3 and 5
             if (i % 3 == 0 && i % 5 == 0) {
                 // Add "FizzBuzz" to the result list

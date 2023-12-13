@@ -6,7 +6,7 @@ import java.util.Random;
  * Hello world!
  *
  */
-public class QuickSort {
+public class QuickSortLongHand {
 
 	private static void quicksort(int[] array) {
 		quicksort(array, 0, array.length - 1);

@@ -6,7 +6,7 @@ import java.util.Random;
  * Hello world!
  *
  */
-public class MergeSort {
+public class MergeSortLongHand {
 
 	private static void mergeSort(int[] inputArray) {
 		

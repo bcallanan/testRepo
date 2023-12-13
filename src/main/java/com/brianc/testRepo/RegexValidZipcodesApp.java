@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * Hello world!
  *
  */
-public class StaplesApp 
+public class RegexValidZipcodesApp 
 {
     public static void main( String[] args ) {
     	

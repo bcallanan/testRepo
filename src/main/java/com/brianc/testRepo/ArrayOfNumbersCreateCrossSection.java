@@ -33,12 +33,14 @@ class Result {
 	        	  }
 	        }
 	        
+	        System.out.println( set );
+
 	        return set.size();
 	    }
 	}
 
 
-	public class addem2 {
+	public class ArrayOfNumbersCreateCrossSection {
 	    public static void main(String[] args) throws IOException {
 //	        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 //	        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

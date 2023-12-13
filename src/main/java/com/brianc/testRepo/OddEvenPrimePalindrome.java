@@ -52,7 +52,7 @@ interface PerformOperation {
 	boolean check( int a );
 	
 }
-public class OddPrimePalindroneApp {
+public class OddEvenPrimePalindrome {
 
 	public static void main(String[] args) throws IOException {
 		MyMath ob = new MyMath();

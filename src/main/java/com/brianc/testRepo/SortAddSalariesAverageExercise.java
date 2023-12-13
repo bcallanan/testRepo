@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.brianc.testRepo.MindTree.Employee;
+import com.brianc.testRepo.Java8LambdaSortUserObject.Employee;
 
 /**
  * Hello world!
  *
  */
-public class StreamExercise 
+public class SortAddSalariesAverageExercise 
 {
 	protected static class Person {
 		private String name;

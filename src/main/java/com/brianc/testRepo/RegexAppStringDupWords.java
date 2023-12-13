@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * Hello world!
  *
  */
-public class RegexAppString 
+public class RegexAppStringDupWords 
 {
     public static void main( String[] args ) {
     
