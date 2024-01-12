@@ -24,7 +24,8 @@ class MyMath {
 
 	public PerformOperation isPrime() {
 		
-    	PerformOperation isPrime = (num) -> num > 1 && IntStream.range( 2,  num).noneMatch( index -> num % index == 0 );
+    	PerformOperation isPrime = (num) -> num > 1 
+    	        && IntStream.range( 2,  num).noneMatch( index -> num % index == 0 );
     	
     	//or
     	// isPrime = (num) -> {
@@ -36,12 +37,14 @@ class MyMath {
 	}
 
 	public PerformOperation isPalindrome() {
-		PerformOperation isPalindrone = ( num ) ->  IntStream.range( 0, Integer.toString(num).length() / 2 )
+		PerformOperation isPalindrone =
+		        ( num ) ->  IntStream.range( 0, Integer.toString(num).length() / 2 )
 				.noneMatch( charIndex -> Integer.toString( num ).charAt( charIndex) !=
 				Integer.toString( num ).charAt( Integer.toString( num ).length() - charIndex - 1 ));
 		
 		// or
-	    // isPalindrone = ( number ) -> String.valueOf(number).equals(new StringBuilder(String.valueOf(number)).reverse().toString());
+	     isPalindrone = ( number ) -> String.valueOf(number).
+		        equals(new StringBuilder(String.valueOf(number)).reverse().toString());
 
 		return isPalindrone;
 	}

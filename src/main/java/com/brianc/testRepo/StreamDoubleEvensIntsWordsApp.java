@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * Hello world!
  *
  */
-public class StreamApp {
+public class StreamDoubleEvensIntsWordsApp {
 	
     public static class Customer {
     	
